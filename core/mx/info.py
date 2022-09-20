@@ -1,13 +1,13 @@
-from django.db import models
-from dynamicModelingPOC import settings
+import sys
+sys.path.append('../')
+from sqlalchemy import Column, Integer, String
+from config.database import Base, DB_SCHEMA_NAME
 
 
-class Info_MX(models.Model):
-    id = models.IntegerField(primary_key=True)
-    channel = models.CharField(null=False, max_length=25)
+class Info_MX(Base):
+    __tablename__ = 'info_mx'
+    __table_args__ = {'extend_existing': True} 
 
-    class Meta:
-        db_table = 'info'
-        # decorate if schema specified
-        if (hasattr(settings, 'DB_SCHEMA_NAME')) and settings.DB_SCHEMA_NAME == 'ddb_mx':
-            db_table = f'[{settings.DB_SCHEMA_NAME}].[{db_table}]'
+    
+    id = Column(Integer, primary_key=True)
+    channel = Column(String)
