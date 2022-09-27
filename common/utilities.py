@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from config.database import DB_SCHEMA_NAME
+from config.conf import DB_SCHEMA_NAME
 from info.models import Info_PL, Info_MX
 
 

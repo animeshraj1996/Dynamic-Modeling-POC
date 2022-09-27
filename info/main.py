@@ -4,7 +4,7 @@ from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 import models
 from models import *
-from config.database import engine, SessionLocal, DB_SCHEMA_NAME
+from config.database import engine, SessionLocal
 from common.utilities import get_model_name
 
 app = FastAPI()
