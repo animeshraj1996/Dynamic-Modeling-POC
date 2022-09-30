@@ -2,7 +2,6 @@ import sys
 sys.path.append('../')
 from sqlalchemy import Column, Integer, String
 from config.database import Base
-from config.conf import DB_SCHEMA_NAME
 
 
 class Info_PL(Base):

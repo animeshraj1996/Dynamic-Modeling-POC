@@ -6,6 +6,9 @@ import models
 from models import *
 from config.database import engine, SessionLocal
 from common.utilities import get_model_name
+import os
+import subprocess
+import signal
 
 app = FastAPI()
 
@@ -25,6 +28,9 @@ def get_db():
 
 
 @app.get('/api/info')
-async def read_all_info(db: Session = Depends(get_db)):
-    modelName = get_model_name()
+async def read_all_info(region_name: str, db: Session = Depends(get_db)):
+    modelName = get_model_name(region_name)
     return db.query(modelName).all()
+
+
+

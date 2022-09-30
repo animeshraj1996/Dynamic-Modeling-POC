@@ -3,10 +3,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import sys
 sys.path.append('../')
-from config.conf import get_db_name
 
-# SQLALCHEMY_DATABASE_URL = "sqlite:///./dynamicModeling.db"
-SQLALCHEMY_DATABASE_URL = get_db_name()
+SQLALCHEMY_DATABASE_URL = "sqlite:///./dynamicModeling.db"
 
 
 engine = create_engine(

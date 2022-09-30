@@ -28,6 +28,6 @@ app.dependency_overrides[get_db] = override_get_db
 client = TestClient(app)
 
 def test_read_all_info():
-    response = client.get('/api/info/')
+    response = client.get('/api/info/?region_name=pl')
     assert response.status_code == 200
 
